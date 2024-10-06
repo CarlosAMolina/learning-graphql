@@ -6,9 +6,11 @@
 npm start
 ```
 
+### Queries and mutations
+
 Open the URL `http://localhost:4000/`, click the `Query your server` button and run:
 
-- Query:
+#### Query
 
 ```json
 {
@@ -16,11 +18,24 @@ Open the URL `http://localhost:4000/`, click the `Query your server` button and 
 }
 ```
 
-- Mutation:
+```json
+query listPhotos {
+  allPhotos {
+    id
+    name
+    description
+    url
+  }
+}
+```
+
+#### Mutation
 
 ```json
 mutation newPhoto {
-    postPhoto(name: "sample photo")
+    postPhoto(name: "sample photo") {
+      id
+    }
 }
 ```
 
@@ -29,6 +44,9 @@ We can run the previous mutation using query variables:
 ```json
 mutation newPhoto($name: String!, $description: String) {
     postPhoto(name: $name, description: $description)
+      id
+      name
+      description
 }
 ```
 
