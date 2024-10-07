@@ -22,9 +22,10 @@ Open the URL `http://localhost:4000/`, click the `Query your server` button and 
 query listPhotos {
   allPhotos {
     id
+    url
     name
     description
-    url
+    category
   }
 }
 ```
@@ -42,11 +43,14 @@ mutation newPhoto {
 We can run the previous mutation using query variables:
 
 ```json
-mutation newPhoto($name: String!, $description: String) {
-    postPhoto(name: $name, description: $description)
-      id
-      name
-      description
+mutation newPhoto($input: PostPhotoInput!) {
+  postPhoto(input:$input) {
+    id
+    name
+    url
+    description
+    category
+  }
 }
 ```
 
@@ -54,7 +58,9 @@ If we use query variables, the values are send in the lower-left corner of the P
 
 ```json
 {
-  "name": "sample photo A",
-  "description": "A sample photo for our dataset"}
+  "input": {
+    "name": "sample photo A",
+    "description": "A sample photo for our dataset"
+  }
 }
 ```
