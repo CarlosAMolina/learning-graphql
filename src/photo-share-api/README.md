@@ -29,6 +29,9 @@ query photos {
     postedBy {
         name
     }
+    taggedUsers {
+        name
+    }
   }
 }
 ```
