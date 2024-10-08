@@ -19,13 +19,16 @@ Open the URL `http://localhost:4000/`, click the `Query your server` button and 
 ```
 
 ```json
-query listPhotos {
+query photos {
   allPhotos {
     id
     url
     name
     description
     category
+    postedBy {
+        name
+    }
   }
 }
 ```
