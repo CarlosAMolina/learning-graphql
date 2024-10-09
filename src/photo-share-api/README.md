@@ -32,6 +32,7 @@ query photos {
     taggedUsers {
         name
     }
+    created
   }
 }
 ```
