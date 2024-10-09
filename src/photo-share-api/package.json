@@ -20,5 +20,8 @@
     "apollo-server": "required to set up an instacne of Apollo Server",
     "graphql": "required to set up an instacne of Apollo Server",
     "nodemon": "watchs files for changes and restarts the server when we make changes"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
