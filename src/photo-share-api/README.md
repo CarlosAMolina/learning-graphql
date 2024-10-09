@@ -39,15 +39,7 @@ query photos {
 
 #### Mutation
 
-```json
-mutation newPhoto {
-    postPhoto(name: "sample photo") {
-      id
-    }
-}
-```
-
-We can run the previous mutation using query variables:
+We use query variables:
 
 ```json
 mutation newPhoto($input: PostPhotoInput!) {
