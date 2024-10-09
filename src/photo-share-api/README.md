@@ -6,6 +6,12 @@
 npm start
 ```
 
+### Paths
+
+- `/`: homepage.
+- `/graphql`: GraphQL endpoint.
+- `/playground`: GraphQL Playground.
+
 ### Queries and mutations
 
 Open the URL `http://localhost:4000/`, click the `Query your server` button and run:
