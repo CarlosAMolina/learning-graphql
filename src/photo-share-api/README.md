@@ -9,7 +9,7 @@ npm install
 ## Run
 
 ```bash
-npm start
+make run-server
 ```
 
 ### Paths
