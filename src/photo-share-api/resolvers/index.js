@@ -59,8 +59,9 @@ const resolvers = {
             return newPhoto
         }
     },
-    // `Photo` is a trivial resolver.
-    // The `parent` is the `Photo` object that is being resolved.
+    // `Photo` is a trivial resolver (page 90 of the book).
+    // The `parent` variable is the `Photo` object that is being resolved.
+    // Resolvers are just functions.
     // Every field in our GraphQL schema can map to a resolver.
     Photo: {
         url: parent => `http://yoursite.com/img/${parent.id}.jpg`,
