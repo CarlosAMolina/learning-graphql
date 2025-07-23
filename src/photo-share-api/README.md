@@ -1,5 +1,11 @@
 # Photo Share API 
 
+## Configuration
+
+```bash
+npm install
+```
+
 ## Run
 
 ```bash
