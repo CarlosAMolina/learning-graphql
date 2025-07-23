@@ -8,6 +8,7 @@ var typeDefs = readFileSync('./typeDefs.graphql', 'UTF-8')
 
 var app = express()
 
+// We send to the server the schema (typeDefs) and resolvers.
 const server = new ApolloServer({
     typeDefs,
     resolvers
