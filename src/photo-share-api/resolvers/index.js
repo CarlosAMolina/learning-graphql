@@ -52,6 +52,7 @@ const resolvers = {
             var newPhoto = {
                 id: _id++,
                 ...args.input,
+                githubUser: "gPlake",  // TODO not harcoded
                 created: new Date()
             }
             photos.push(newPhoto)
