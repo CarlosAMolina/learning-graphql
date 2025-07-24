@@ -1,16 +1,20 @@
 # Photo Share API 
 
-## Configuration
+## Develop
 
 ```bash
 npm install
+make run-server
 ```
 
 ## Run
 
 ```bash
-make run-server
+make build-docker-node-apollo
+make run-docker-node-apollo
 ```
+
+## API
 
 ### Paths
 
@@ -18,11 +22,9 @@ make run-server
 - `/graphql`: GraphQL endpoint.
 - `/playground`: GraphQL Playground.
 
-### Queries and mutations
+To run queries and mutations, open the URL `http://localhost:4000/` and click the `Query your server` button.
 
-Open the URL `http://localhost:4000/`, click the `Query your server` button and run:
-
-#### Query
+### Query
 
 Return count:
 
@@ -87,7 +89,7 @@ Filter by date.
     }
     ```
 
-#### Mutation
+### Mutation
 
 We use query variables:
 
