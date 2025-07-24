@@ -24,11 +24,15 @@ Open the URL `http://localhost:4000/`, click the `Query your server` button and 
 
 #### Query
 
+Return count:
+
 ```json
 {
   totalPhotos
 }
 ```
+
+Return all photos:
 
 ```json
 query photos {
@@ -49,6 +53,40 @@ query photos {
 }
 ```
 
+Filter by date.
+
+- Using query variables:
+
+    ```json
+    query recentPhotos($after: DateTime) {
+      allPhotos(after: $after) {
+        url
+        name
+        created
+      }
+    }
+    ```
+
+    With query variables, the values are send in the lower-left corner of the Playground. Click the `Variables` option and write:
+
+    ```json
+    {
+      "after": "2000-01-03"
+    }
+    ```
+
+- Using the date string directly to the query itself:
+
+    ```json
+    query {
+      allPhotos(after: "2000-01-03") {
+        url
+        name
+        created
+      }
+    }
+    ```
+
 #### Mutation
 
 We use query variables:
@@ -61,11 +99,12 @@ mutation newPhoto($input: PostPhotoInput!) {
     url
     description
     category
+    created
   }
 }
 ```
 
-If we use query variables, the values are send in the lower-left corner of the Playground. Click the `Variables` option and write:
+Send query variables values in the lower-left corner of the Playground (explained above):
 
 ```json
 {

@@ -22,7 +22,7 @@ var photos = [
         "name": "Enjoying the sunshine",
         "category": "SELFIE",
         "githubUser": "sSchmidt",
-        "created": "1-2-1985"
+        "created": "1985-01-02"
     },
     {
         "id": "3",
@@ -44,7 +44,20 @@ var tags = [
 const resolvers = {
     Query: {
         totalPhotos: () => photos.length,
-        allPhotos: () => photos
+        allPhotos: (parent, args) => {
+            if (typeof args.after === 'undefined') {
+                return photos
+            }
+            // If typeof(args.after) is:
+            // - string: query does not use query variables.
+            // - object (Date): query uses query variables.
+            const after = typeof(args.after === "string") ? new Date(args.after) : args.after
+            // Note. Photos:
+            // - Defined in prevous variables have typeof(created)=string.
+            // - Created using GraphQL have typeof(created)=object (Date). `new Date` can be applied
+            // and the type won't change.
+            return photos.filter(p => new Date(p.created) >= after)
+        }
     },
     Mutation: {
         // parent: the parent of the `postPhoto` resolver is a Mutation,
