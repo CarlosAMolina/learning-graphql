@@ -1,5 +1,8 @@
+API_IMAGE_NAME=node-apollo-api
+API_CONTAINER_NAME=$(API_IMAGE_NAME)-container
+
 build-docker-node-apollo:
-	docker build -t node-apollo .
+	docker build -t $(API_IMAGE_NAME) .
 
 # We follow [this tutorial](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-community-with-docker/):
 pull-mongo:
@@ -12,4 +15,7 @@ run-server:
 	npm start
 
 run-docker-node-apollo:
-	docker run --rm -d --name node-apollo-container -p 4000:4000 node-apollo
+	docker run --rm -d --name $(API_CONTAINER_NAME) -p 4000:4000 $(API_IMAGE_NAME)
+
+stop-docker:
+	docker stop $(shell docker ps -aq)
