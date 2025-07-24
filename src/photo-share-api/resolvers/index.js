@@ -6,6 +6,8 @@ var users  = [
     { "githubLogin": "gPlake", "name": "Glen Plake" },
     { "githubLogin": "sSchmidt", "name": "Scot Schmidt" },
 ]
+// Any valid date sting will work becasue the field will be serialized
+// before it is returned (page 101 of the book).
 var photos = [
     {
         "id": "1",
@@ -88,6 +90,7 @@ const resolvers = {
             // Converts array of photoIDs into an array of photo objects
             .map(photoID => photos.find(p => p.id === photoID))
     },
+    // When we define custom scalars, we have to define some functions (page 100 of the book):
     // - parseValue: required when using `query variables`. Whatever paseValue returns is
     // passed to the resolver in the `args` argument.
     // - serialize: converts the value to return in the response.
