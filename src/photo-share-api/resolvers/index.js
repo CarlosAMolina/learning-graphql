@@ -48,15 +48,11 @@ const resolvers = {
             if (typeof args.after === 'undefined') {
                 return photos
             }
-            // If typeof(args.after) is:
-            // - string: query does not use query variables.
-            // - object (Date): query uses query variables.
-            const after = typeof(args.after === "string") ? new Date(args.after) : args.after
             // Note. Photos:
             // - Defined in prevous variables have typeof(created)=string.
             // - Created using GraphQL have typeof(created)=object (Date). `new Date` can be applied
             // and the type won't change.
-            return photos.filter(p => new Date(p.created) >= after)
+            return photos.filter(p => new Date(p.created) >= args.after)
         }
     },
     Mutation: {
@@ -114,7 +110,7 @@ const resolvers = {
         description: 'A valid date time value.',
         parseValue: value => new Date(value),
         serialize: value => new Date(value).toISOString(),
-        parseLiteral: ast => ast.value
+        parseLiteral: ast => new Date(ast.value)
     })
 }
 
