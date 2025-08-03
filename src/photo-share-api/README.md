@@ -28,7 +28,7 @@ To run queries and mutations, open the URL `http://localhost:4000/` and click th
 
 Return count:
 
-```
+```graphql
 {
   totalPhotos
 }
@@ -36,7 +36,7 @@ Return count:
 
 Return all photos:
 
-```
+```graphql
 query photos {
   allPhotos {
     id
@@ -59,7 +59,7 @@ Filter by date.
 
 - Using query variables:
 
-    ```
+    ```graphql
     query recentPhotos($after: DateTime) {
       allPhotos(after: $after) {
         url
@@ -79,7 +79,7 @@ Filter by date.
 
 - Using the date string directly to the query itself:
 
-    ```
+    ```graphql
     query {
       allPhotos(after: "2000-01-03") {
         url
@@ -93,7 +93,7 @@ Filter by date.
 
 We use query variables:
 
-```
+```graphql
 mutation newPhoto($input: PostPhotoInput!) {
   postPhoto(input:$input) {
     id
